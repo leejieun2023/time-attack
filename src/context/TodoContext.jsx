@@ -1,6 +1,5 @@
-import { createContext } from "react";
-import { useState, useEffect } from "react";
-import { defaultTodos } from "../../static/todos";
+import { createContext, useState, useEffect } from "react";
+import { defaultTodos } from "../static/todos";
 
 export const TodoContext = createContext();
 
@@ -49,7 +48,7 @@ const TodoProvider = (props) => {
     }, [sortOrder, todos]);
 
     return (
-        <TodoProvider.provider value={{
+        <TodoContext.Provider value={{
             todos,
             setTodos,
             sortOrder,
@@ -60,7 +59,8 @@ const TodoProvider = (props) => {
             onChangeSortOrder
         }}>
             {props.children}
-        </TodoProvider.provider>
+        </TodoContext.Provider>
     );
 
 };
+export default TodoProvider;
